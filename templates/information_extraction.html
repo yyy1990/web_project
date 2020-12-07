@@ -5,6 +5,26 @@
         <title>观点提取</title>
     </head>
     <body>
-        
+        <div align="center" style="margin-top: 100px;">
+            <form name="form1"   method="POST">
+                <textarea name="input_sentence" cols="80" rows="6">{{ input_sentence }}</textarea>
+                &nbsp
+                <input type="submit" value="提取" οnclick="">
+            </form>
+            
+            &nbsp &nbsp
+
+            <form name="form2"   method="POST">
+                <textarea name="result" cols="80" rows="6" readonly="readonly">{{ result }}</textarea>
+            </form>
+        </div>
+
+        {% if message %}
+            <p style="color:red">{{ message }}</p>
+        {% endif %}
+
+        <p><a href="{{ url_for('senti_classi') }}">情感分析</a></p>
+        <p><a href="{{ url_for('poem_gene') }}">诗歌生成</a></p>
+        <p><a href="https://github.com/yyy1990/Information-Extraction">观点提取项目主页</a></p>
     </body>
 </html>
