@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import dependency_parsing as dp
+import info_extract.dependency_parsing as dp
 
 app = Flask(__name__)
 
@@ -49,6 +49,14 @@ def senti_classi():
 @app.route('/poem_gene', methods=['GET'])
 def poem_gene():
     '''
-    诗歌生成
+    诗歌补全
     '''
     return render_template('poem_generation.html')
+
+
+@app.route('/cangtou', methods=['GET'])
+def cangtou():
+    '''
+    藏头诗生成
+    '''
+    return render_template('cangtou.html')
