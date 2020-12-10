@@ -5,6 +5,47 @@
         <title>情感分析</title>
     </head>
     <body>
+        <span style="text-align: center; font-weight: bold;">情感分析</span>
+        <div align="center" style="margin-top: 30px;">
+            <form name="form1"   method="POST">
+                <textarea name="input_sentence" cols="100" rows="8">{{ input_sentence }}</textarea> 
+                <br/>
+                <input type="submit" value="分析" οnclick="">
+            </form>
+            
+            <br/>
+            <br/>
+
+            <form name="form2"   method="POST">
+                <table border="1" class="table_text" align="center" width="50%">
+                    <tr>
+                        <th>模型</th>
+                        <th>评分</th>
+                        <th>结果</th>
+                    </tr>
+                    <tr>
+                        <td>模型一</td>
+                        <td>{{ score1 }}</td>
+                        <td>{{ res1 }}</td>
+                    </tr>
+                    <tr>
+                        <td>模型二</td>
+                        <td>{{ score2 }}</td>
+                        <td>{{ res2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>模型三</td>
+                        <td>{{ score3 }}</td>
+                        <td>{{ res3 }}</td>
+                    </tr>
+                    <tr>
+                        <td>模型集成</td>
+                        <td>{{ avg_score }}</td>
+                        <td>{{ avg_res }}</td>
+                    </tr>
+                </table>
+            </form>
+        </div>
         
         {% if message %}
             <p style="color:red">{{ message }}</p>
@@ -12,5 +53,6 @@
         <p><a href="{{ url_for('info_extract') }}">观点提取</a></p>
         <p><a href="{{ url_for('poem_gene') }}">诗歌补全</a></p>
         <p><a href="{{ url_for('cangtou') }}">藏头诗生成</a></p>
+        <p><a href="https://github.com/yyy1990/Sentiment-Classification">情感分析项目主页</a></p>
     </body>
 </html>
