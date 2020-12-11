@@ -5,12 +5,28 @@
         <title>藏头诗生成</title>
     </head>
     <body>
-        
+        <span style="text-align: center; font-weight: bold;">藏头诗生成</span>
+        <div align="center" style="margin-top: 30px;">
+            <form name="form1"   method="POST">
+                <textarea name="input_sentence" cols="100" rows="8">{{ input_sentence }}</textarea> 
+                <br/>
+                <input type="submit" value="生成藏头诗" οnclick="">
+            </form>
+            
+            <br/>
+            <br/>
+
+            <form name="form2"   method="POST">
+                <textarea name="result" cols="100" rows="8" readonly="readonly">{{ result }}</textarea>
+            </form>
+        </div>
+
         {% if message %}
             <p style="color:red">{{ message }}</p>
         {% endif %}
         <p><a href="{{ url_for('info_extract') }}">观点提取</a></p>
         <p><a href="{{ url_for('senti_classi') }}">情感分析</a></p>
         <p><a href="{{ url_for('poem_gene') }}">诗歌补全</a></p>
+        <p><a href="https://github.com/yyy1990/Poet_generation">诗歌项目主页</a></p>
     </body>
 </html>

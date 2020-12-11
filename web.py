@@ -3,6 +3,7 @@ import info_extract.dependency_parsing as dp
 import sentiment.model as model
 from gensim.models import KeyedVectors
 import torch
+import poet.poet_model as pm
 
 app = Flask(__name__)
 device = torch.device("cpu")
@@ -122,7 +123,25 @@ def poem_gene():
     '''
     诗歌补全
     '''
-    return render_template('poem_generation.html')
+    return render_template('poem_generation.html', input_sentence='诗歌开头', result='生成的诗歌')
+
+
+@app.route('/poem_gene', methods=['POST'])
+def poem_gene_result():
+    '''
+    诗歌补全结果
+    '''
+    sentence = request.form['input_sentence']
+    try:
+        result = pm.generate(sentence)
+        s_split = ''.join(result).split('。')
+        result = ''
+        for s in s_split:
+            if s:
+                result = result + s + '。' + '\n'
+        return render_template('poem_generation.html', input_sentence=sentence, result=result)
+    except:
+        return render_template('poem_generation.html', message='输入错误')
 
 
 @app.route('/cangtou', methods=['GET'])
@@ -130,7 +149,20 @@ def cangtou():
     '''
     藏头诗生成
     '''
-    return render_template('cangtou.html')
+    return render_template('cangtou.html', input_sentence='藏头诗开头字', result='生成的藏头诗' )
+
+
+@app.route('/cangtou', methods=['POST'])
+def cangtou_result():
+    '''
+    藏头诗结果
+    '''
+    sentence = request.form['input_sentence']
+    try:
+        result = pm.cang_tou(sentence)
+        return render_template('cangtou.html', input_sentence=sentence, result=result)
+    except:
+        return render_template('cangtou.html', message='输入错误')
 
 
 if __name__ == '__main__':
