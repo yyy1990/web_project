@@ -70,7 +70,7 @@ def senti_classi_result():
     try:
         score1, res1 = get_sentiment_result(sentence, s1_path, device)
         score2, res2 = get_sentiment_result(sentence, s2_path, device)
-        score3, res3 = get_sentiment_result(sentence, s2_path, device)
+        score3, res3 = get_sentiment_result(sentence, s3_path, device)
         avg_score = (score1+score2+score3)/3
         avg_res = score2res(avg_score)
         score1 = round(score1, r_n)
