@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: gbk -*-
+# -*- coding: utf-8 -*-
 
 import jieba
 import numpy as np

@@ -1,2 +1,2 @@
 #!/usr/bin/python
-# -*- coding: gbk -*-
+# -*- coding: utf-8 -*-

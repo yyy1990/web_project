@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: gbk -*-
+# -*- coding: utf-8 -*-
 
 from fastHan import FastHan
 from opencc import OpenCC

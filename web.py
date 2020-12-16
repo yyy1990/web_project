@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: gbk -*-
+# -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request
 import info_extract.dependency_parsing as dp
