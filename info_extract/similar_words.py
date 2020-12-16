@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: gbk -*-
+
 from functools import reduce
 
 import pandas as pd

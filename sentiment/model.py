@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: gbk -*-
+
 import jieba
 import numpy as np
 import pandas as pd

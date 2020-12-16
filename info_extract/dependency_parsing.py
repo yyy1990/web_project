@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: gbk -*-
+
 from fastHan import FastHan
 from opencc import OpenCC
 
