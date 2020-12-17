@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from gensim.models import KeyedVectors
 
-import convert_input
+import sentiment.convert_input as convert_input
 
 #预处理，数据来源：https://github.com/CLUEbenchmark/CLUEDatasetSearch
 

@@ -9,7 +9,7 @@ import torch
 import torch.optim as optim
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
-from torch.utils.tensorboard import SummaryWriter
+#from torch.utils.tensorboard import SummaryWriter
 from tqdm.notebook import tqdm
 
 
@@ -141,11 +141,11 @@ def accuracy(output, label, topk=(1,)):
     return rtn
 
 
-
+'''
 def train(epochs, train_loader, device, model, criterion, optimizer, scheduler, tensorboard_path):
-    '''
+    
     训练中使用tensorboard来绘制曲线，终端输入tensorboard --logdir=/path_to_log_dir/ --port 6006 可查看
-    '''
+    
     model.train()
     top1 = AvgrageMeter()
     model = model.to(device)
@@ -180,8 +180,9 @@ def train(epochs, train_loader, device, model, criterion, optimizer, scheduler, 
         scheduler.step()
 
     print('Finished Training')
+'''
 
-
+'''
 def main_train(batch_size = Config.batch_size, lr = Config.lr, epochs = Config.epochs):
     poem_ds = PoemDataSet(Config.poem_path, Config.seq_len)
     word2ix = poem_ds.word2ix
@@ -196,6 +197,7 @@ def main_train(batch_size = Config.batch_size, lr = Config.lr, epochs = Config.e
         os.mkdir(Config.tensorboard_path)
     train(epochs, poem_loader, device, model, criterion, optimizer,scheduler, Config.tensorboard_path)
     torch.save(model, Config.model_save_path)
+'''
 
 
 def generate(start_words, model_path = './data/poet.pkl', data_path = Config.poem_path, max_len = 48):
@@ -270,5 +272,5 @@ def cut_poet(p, l):
     return result
 
 
-if __name__ == '__main__':
-    main_train()
+#if __name__ == '__main__':
+#    main_train()
