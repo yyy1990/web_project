@@ -6,6 +6,11 @@
     </head>
     <body>
         <span style="text-align: center; font-weight: bold;">情感分析</span>
+
+        {% if message %}
+        <p style="color:red">{{ message }}</p>
+        {% endif %}
+        
         <div align="center" style="margin-top: 30px;">
             <form name="form1"   method="POST">
                 <textarea name="input_sentence" cols="100" rows="8">{{ input_sentence }}</textarea> 
@@ -47,9 +52,6 @@
             </form>
         </div>
         
-        {% if message %}
-            <p style="color:red">{{ message }}</p>
-        {% endif %}
         <p><a href="{{ url_for('info_extract') }}">观点提取</a></p>
         <p><a href="{{ url_for('poem_gene') }}">诗歌补全</a></p>
         <p><a href="{{ url_for('cangtou') }}">藏头诗生成</a></p>

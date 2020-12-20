@@ -5,26 +5,27 @@
         <title>诗歌补全</title>
     </head>
     <body>
-        <body>
-            <span style="text-align: center; font-weight: bold;">诗歌补全</span>
-            <div align="center" style="margin-top: 30px;">
-                <form name="form1"   method="POST">
-                    <textarea name="input_sentence" cols="100" rows="8">{{ input_sentence }}</textarea> 
-                    <br/>
-                    <input type="submit" value="生成诗歌" οnclick="">
-                </form>
-                
-                <br/>
-                <br/>
-    
-                <form name="form2"   method="POST">
-                    <textarea name="result" cols="100" rows="8" readonly="readonly">{{ result }}</textarea>
-                </form>
-            </div>
+        <span style="text-align: center; font-weight: bold;">诗歌补全</span>
 
         {% if message %}
-            <p style="color:red">{{ message }}</p>
+        <p style="color:red">{{ message }}</p>
         {% endif %}
+
+        <div align="center" style="margin-top: 30px;">
+            <form name="form1"   method="POST">
+                <textarea name="input_sentence" cols="100" rows="8">{{ input_sentence }}</textarea> 
+                <br/>
+                <input type="submit" value="生成诗歌" οnclick="">
+            </form>
+                
+            <br/>
+            <br/>
+    
+            <form name="form2"   method="POST">
+                <textarea name="result" cols="100" rows="8" readonly="readonly">{{ result }}</textarea>
+            </form>
+        </div>
+
         <p><a href="{{ url_for('info_extract') }}">观点提取</a></p>
         <p><a href="{{ url_for('senti_classi') }}">情感分析</a></p>
         <p><a href="{{ url_for('cangtou') }}">藏头诗生成</a></p>

@@ -1,15 +1,19 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request
-import info_extract.dependency_parsing as dp
-import sentiment.model as model
-from gensim.models import KeyedVectors
 import torch
+from flask import Flask, render_template, request
+from flask_script import Manager
+from gensim.models import KeyedVectors
+
+import info_extract.dependency_parsing as dp
 import poet.poet_model as pm
+import sentiment.model as model
 
 app = Flask(__name__)
 device = torch.device("cpu")
+manager = Manager(app)
+
 r_n = 4 #输出小数位后保留位数
 
 #用于情感分析的预训练词向量
@@ -35,7 +39,7 @@ def info_extract():
     '''
     观点提取
     '''
-    return render_template('information_extraction.html', input_sentence='待分析文本', result='结果')
+    return render_template('information_extraction.html', input_sentence='请在此输入待分析文本', result='结果展示')
 
 
 @app.route('/info_extract', methods=['POST'])
@@ -61,7 +65,7 @@ def senti_classi():
     '''
     情感分析
     '''
-    return render_template('sentiment_classification.html', input_sentence = '待分析文本')
+    return render_template('sentiment_classification.html', input_sentence = '请在此输入待分析文本')
 
 
 @app.route('/senti_classi', methods=['POST'])
@@ -126,7 +130,7 @@ def poem_gene():
     '''
     诗歌补全
     '''
-    return render_template('poem_generation.html', input_sentence='诗歌开头', result='生成的诗歌')
+    return render_template('poem_generation.html', input_sentence='请在此输入诗歌开头', result='结果展示')
 
 
 @app.route('/poem_gene', methods=['POST'])
@@ -152,7 +156,7 @@ def cangtou():
     '''
     藏头诗生成
     '''
-    return render_template('cangtou.html', input_sentence='藏头诗开头字', result='生成的藏头诗' )
+    return render_template('cangtou.html', input_sentence='请在此输入藏头诗开头字', result='结果展示' )
 
 
 @app.route('/cangtou', methods=['POST'])
@@ -169,4 +173,4 @@ def cangtou_result():
 
 
 if __name__ == '__main__':
-    app.run()
+    manager.run()
